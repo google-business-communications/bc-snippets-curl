@@ -24,6 +24,6 @@ curl -X POST "https://businesscommunications.googleapis.com/v1/brands/__BRAND_ID
 -H "$(oauth2l header --json ./service_account_key.json businesscommunications)" \
 -d '{
   "placeId": "__PLACE_ID__",
-  "agent": "My first agent",
+  "agent": "brands/__BRAND_ID__/agents/__AGENT_ID__",
   "defaultLocale": "en",
 }'
