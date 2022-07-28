@@ -12,23 +12,14 @@
 ## See the License for the specific language governing permissions and
 ## limitations under the License.
 
-# This code creates a knowledge base.
-# Read more: https://developers.google.com/business-communications/business-messages/guides/how-to/integrate/dialogflow?method=api#create-knowledge-base
+# This code lists all integrations for an agent.
+# Read more: https://developers.google.com/business-communications/business-messages/guides/how-to/integrate/dialogflow?method=api#list_all_integrations_for_an_agent
 
-# Replace the __BRAND_ID__, __AGENT_ID__, __INTEGRATION_ID__ and __KNOWLEDGE_BASE_DISPLAY_NAME__
+# Replace the __BRAND_ID__ and __AGENT_ID__
 # Make sure a service account key file exists at ./service_account_key.json
 
-curl -X PATCH \
-"https://businesscommunications.googleapis.com/v1/brands/__BRAND_ID__/agents/__AGENT_ID__/integrations/__INTEGRATION_ID__?updateMask=dialogflowEsIntegration.dialogflowKnowledgeBases" \
+curl -X GET \
+"https://businesscommunications.googleapis.com/v1/brands/__BRAND_ID__/agents/__AGENT_ID__/integrations" \
 -H "Content-Type: application/json" \
 -H "User-Agent: curl/business-communications" \
--H "$(oauth2l header --json ./service_account_key.json businesscommunications)" \
--d '{
-  "dialogflowEsIntegration": {
-    "dialogflowKnowledgeBases": [
-      {
-        "displayName": "__KNOWLEDGE_BASE_DISPLAY_NAME__"
-      }
-    ]
-  }
-}'
+-H "$(oauth2l header --json ./service_account_key.json businesscommunications)"
